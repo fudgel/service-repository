@@ -1,0 +1,46 @@
+extends layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/services" ) Home
+    +nav_item( "/services", "active" ) Services
+    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title MediationDescription
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Details
+            .panel-body
+              p 
+                a(href="/application/#{mediation.providerSystemId}") Provider Application Id: #{mediation.providerSystemId} 
+              p Header: #{mediation.header}
+              p Operation: #{mediation.operation}
+              p Provider Service Name: #{mediation.providerServiceName}
+              p Transcode: #{mediation.transcode}
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Used in #{mediation.services.length} Services
+            .panel-body
+              each service in mediation.services
+                p
+                  a(href="/service/#{service}") #{service}
+          //- .panel.panel-primary
+            //- .panel-heading
+              //- h2.panel-title #{mediation.referenceData.length} Reference Data Categories
+            //- .panel-body
+              //- p
+                //- each category in mediation.referenceData
+                  //- p
+                    //- a(href="/referenceData/category/#{category}") #{category}
+    .col-xs-12.col-md-3
+      p.lead Copyright 2016 Jim Walker
+      p= sidebar.callToAction 

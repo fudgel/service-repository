@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "index.html" ) Home
+    +nav_item( "services", "active" ) Services
+    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-sm-8
+      .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{serviceList.length} Services found 
+            .panel-body
+              p 
+                each service in serviceList
+                  p
+                    a(href="/service/#{service.id}")= service.id+" "+service.name
+     .col-xs-12.col-sm-4
+       p.lead Copyright 2016 Jim Walker

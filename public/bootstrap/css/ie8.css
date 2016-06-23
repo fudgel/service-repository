@@ -1,0 +1,17 @@
+/*------------------------------------*\
+	NOTES
+\*------------------------------------*/
+/*
+	This CSS in intended to fix ie bugs and cater for the shortfall of css support for IE *
+	There are also some IE7 fixes in this sheet
+
+*/
+/*------------------------------------*\
+	ICONS
+\*------------------------------------*/
+.select-menu .caret {
+	display:none;
+}
+.input-group .form-control {
+	display:block;
+}

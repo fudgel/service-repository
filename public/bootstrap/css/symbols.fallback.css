@@ -1,0 +1,54 @@
+.symbol-add-account { background-image: url('png/add-account.png'); background-repeat: no-repeat; }
+
+.symbol-american-express { background-image: url('png/american-express.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-a { background-image: url('png/bullet-a.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-arrow-a { background-image: url('png/bullet-arrow-a.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-arrow-b { background-image: url('png/bullet-arrow-b.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-arrow-c { background-image: url('png/bullet-arrow-c.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-b { background-image: url('png/bullet-b.png'); background-repeat: no-repeat; }
+
+.symbol-bullet-c { background-image: url('png/bullet-c.png'); background-repeat: no-repeat; }
+
+.checkbox label,
+.checkbox-inline label,
+.symbol-checkbox-off { background-image: url('png/checkbox-off.png'); background-repeat: no-repeat; }
+
+input[type="checkbox"]:checked + label,
+.symbol-checkbox-on { background-image: url('png/checkbox-on.png'); background-repeat: no-repeat; }
+
+.symbol-lip-quaternary { background-image: url('png/lip-quaternary.png'); background-repeat: no-repeat; }
+
+.symbol-lip-secondary { background-image: url('png/lip-secondary.png'); background-repeat: no-repeat; }
+
+.symbol-logo-alt { background-image: url('png/logo-alt.png'); background-repeat: no-repeat; }
+
+.symbol-logo-phone { background-image: url('png/logo-phone.png'); background-repeat: no-repeat; }
+
+.symbol-logo-tablet { background-image: url('png/logo-tablet.png'); background-repeat: no-repeat; }
+
+.symbol-master-card { background-image: url('png/master-card.png'); background-repeat: no-repeat; }
+
+.radio label,
+.radio-inline label,
+.symbol-radio-off { background-image: url('png/radio-off.png'); background-repeat: no-repeat; }
+
+input[type="radio"]:checked + label,
+.symbol-radio-on { background-image: url('png/radio-on.png'); background-repeat: no-repeat; }
+
+.symbol-store-apple { background-image: url('png/store-apple.png'); background-repeat: no-repeat; }
+
+.symbol-store-google { background-image: url('png/store-google.png'); background-repeat: no-repeat; }
+
+.symbol-store-windows { background-image: url('png/store-windows.png'); background-repeat: no-repeat; }
+
+.symbol-tick-b-lg { background-image: url('png/tick-b-lg.png'); background-repeat: no-repeat; }
+
+.symbol-tick-b-sm { background-image: url('png/tick-b-sm.png'); background-repeat: no-repeat; }
+
+.symbol-visa { background-image: url('png/visa.png'); background-repeat: no-repeat; }
+

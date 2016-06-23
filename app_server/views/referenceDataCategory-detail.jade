@@ -1,0 +1,37 @@
+extend layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/services" ) Home
+    +nav_item( "../services", "active" ) Services
+    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Description
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{category.services.length} Services
+            .panel-body
+              p
+                each service in category.services 
+                  p
+                    a(href="/service/#{service}") #{service}
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{category.mediations.length} Mediations
+            .panel-body
+              p
+                each mediation in category.mediations
+                  p
+                  a(href="/mediation/#{mediation}") #{mediation}
+    .col-xs-12.col-md-3
+      p.lead Copyright 2016 Jim Walker
+      p= sidebar.callToAction

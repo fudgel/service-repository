@@ -1,0 +1,58 @@
+extends layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/services" ) Home
+    +nav_item( "../services", "active" ) Services
+    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Service Description
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Details 
+            .panel-body
+              p Transactional Component: #{service.transactionalComponent}
+              p Service Group: #{service.serviceGroup}  
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{service.mediations.length} Mediations
+            .panel-body
+              p            
+                each mediation in service.mediations
+                  p 
+                  a(href="/mediation/#{mediation}") #{mediation}
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{service.consumers.length} Consumers
+            .panel-body
+              p
+                each consumer in service.consumers
+                  p
+                    a(href="/application/#{consumer}") #{consumer} 
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{service.STSconsumers.length} STS Registered Consumers
+            .panel-body
+              p
+                each STSconsumer in service.STSconsumers
+                  p #{STSconsumer} &#32; 
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{service.referenceData.length} Reference Data Categories
+            .panel-body
+              p
+                each category in service.referenceData
+                  p
+                    a(href="/referenceData/category/#{category}") #{category}
+    .col-xs-12.col-md-3
+      p.lead Copyright 2016 Jim Walker
+      p= sidebar.callToAction

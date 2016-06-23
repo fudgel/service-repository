@@ -1,0 +1,9 @@
+/*------------------------------------*\
+	CAROTS
+\*------------------------------------*/
+.select-menu .caret {
+	display: none;
+}
+select.form-control {
+	padding-right: 12px;
+}
