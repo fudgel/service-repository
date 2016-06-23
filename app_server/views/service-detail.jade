@@ -16,12 +16,23 @@ block content
           .panel.panel-primary
             .panel-heading
               h2.panel-title Service Description
+            .panel-body
+              p #{service.description}
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Service Documentation and Artefacts
+            .panel-body
+              p 
+                a(href="#{service.documentationLocation}") #{service.id} Documentation
+              p SVN Link (TBC) 
           .panel.panel-primary
             .panel-heading
               h2.panel-title Details 
             .panel-body
-              p Transactional Component: #{service.transactionalComponent}
-              p Service Group: #{service.serviceGroup}  
+              p BCRM: #{service.bcrm}
+              p IT Domain: #{service.itDomain}
+              p IFW Transactional Component: #{service.transactionalComponent}
+              p IFW Service Group: #{service.serviceGroup}  
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.mediations.length} Mediations
