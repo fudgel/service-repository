@@ -3,9 +3,9 @@ extends layout
 block content
 
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "/services" ) Home
+    +nav_item( "../services" ) Home
     +nav_item( "../services", "active" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "../referenceData" ) Reference Data
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
       h1= pageHeader.title
@@ -65,5 +65,5 @@ block content
                   p
                     a(href="/referenceData/category/#{category}") #{category}
     .col-xs-12.col-md-3
-      p.lead Copyright 2016 Jim Walker
+      p.lead Copyright 2016 Jim Walker and WBC
       p= sidebar.callToAction
