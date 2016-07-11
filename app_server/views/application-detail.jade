@@ -3,9 +3,10 @@ extends layout
 block content
 
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "index.html" ) Home
-    +nav_item( "services.html", "active" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "/" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories" ) Reference Data
+    +nav_item( "/applications", "active" ) Applications
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
       h1= pageHeader.title
@@ -26,5 +27,5 @@ block content
               p 
                 a(href="#{application.appInvRec}") #{application.id} App Inventory Record
     .col-xs-12.col-md-3
-      p.lead Copyright 2016 Jim Walker
+      p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction

@@ -24,10 +24,10 @@ module.exports.serviceReadOne = function(req, res) {
  }
 };
 
-/* GET a Service List by a regular expression in the name */
+/* GET the results of a search Service List by a regular expression in the name */
 module.exports.serviceListByNameRead = function(req, res) {
  if (req.params.nameregex) {
-   Service.find({'name' : new RegExp(req.params.nameregex, 'i')}, {_id:0, id:1, name:1}, function(err, serviceList){
+   Service.find({'name' : new RegExp(req.params.nameregex, 'i')}, {_id:0, id:1, name:1, consumers:1}, function(err, serviceList){
      if(!serviceList) {
        sendJSONresponse(res, 404, {"message":"No services found using that regular expression in the service name"});
        return;
@@ -44,7 +44,7 @@ module.exports.serviceListByNameRead = function(req, res) {
 
 /* GET a Service List by a regular expression in the name */
 module.exports.serviceListRead = function(req, res) {
-   Service.find({'id' : new RegExp("SVC", 'i')}, {_id:0,id:1,name:1}, function(err, serviceList){
+   Service.find({'id' : new RegExp("SVC", 'i')}, {_id:0,id:1,name:1,consumers:1}, function(err, serviceList){
      if(!serviceList) {
        sendJSONresponse(res, 404, {"message":"No services found using that regular expression in the service name"});
        return;

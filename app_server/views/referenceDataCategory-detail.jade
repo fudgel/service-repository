@@ -3,35 +3,54 @@ extend layout
 block content
 
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "/services" ) Home
-    +nav_item( "../services", "active" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "/" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories", "active" ) Reference Data
+    +nav_item( "/applications" ) Applications
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
-      h1= pageHeader.title
+      h1 #{category[0].id} Reference Data Category
   .row
-    .col-xs-12.col-md-9
+    .col-xs-12.col-md-12
       .row
-        .col-xs-12.col-sm-6
+        .col-xs-12.col-sm-9
           .panel.panel-primary
             .panel-heading
               h2.panel-title Description
           .panel.panel-primary
             .panel-heading
-              h2.panel-title #{category.services.length} Services
-            .panel-body
-              p
-                each service in category.services 
+              h2.panel-title 
+                a(href="/referenceData/codes/#{category[0].id}") Values
+          div(class="table-responsive")
+            table(class="table table-striped table-bordered")
+              thead
+                tr
+                  th CanonicalCode
+                  th Description
+              tbody
+                each code in category[0].codes
                   p
-                    a(href="/service/#{service}") #{service}
+                    tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                      //span.label.label-success Active
+                      td(class="active") #{code.CanonicalCode}  
+                      td #{code.Description}
+        .col-xs-12.col-sm-3
           .panel.panel-primary
             .panel-heading
-              h2.panel-title #{category.mediations.length} Mediations
+              h2.panel-title #{category[0].systemCodes.length} provider(s) with mapped codes
             .panel-body
               p
-                each mediation in category.mediations
+                each system in category[0].systemCodes 
+                  p #{system}
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{category[0].services.length} consuming services
+            .panel-body
+              p
+                each service in category[0].services 
                   p
-                  a(href="/mediation/#{mediation}") #{mediation}
+                    a(href="/service/#{service}") #{service}
+  .row  
     .col-xs-12.col-md-3
-      p.lead Copyright 2016 Jim Walker
+      p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction

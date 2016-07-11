@@ -6,7 +6,7 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-/* GET a location by the id */
+/* GET application details by the application inventory id */
 module.exports.applicationReadOne = function(req, res) {
  if (req.params.applicationid) {
    Application.findOne({"id":req.params.applicationid}, function (err, application) {
@@ -21,5 +21,37 @@ module.exports.applicationReadOne = function(req, res) {
    });
  } else {
    sendJSONresponse(res, 404, {"message":"No applicationid parameter"});
+ }
+};
+
+/* GET application list */
+module.exports.applicationListRead = function(req, res) {
+   Application.find({},{id:1,name:1,appInvRec:1}, function (err, applicationList) {
+     if(!applicationList) {
+       sendJSONresponse(res, 404, {"message":"No Application records found"});
+       return;
+     } else if (err) {
+       sendJSONresponse(res, 404, err);
+       return;
+     }
+     sendJSONresponse(res, 200, {applicationList});
+   })
+};
+
+/* GET the results of a search Application List by a regular expression in the name or id */
+module.exports.applicationListByNameRead = function(req, res) {
+ if (req.params.nameregex) {
+   Application.find({'stsRef' : new RegExp(req.params.nameregex, 'i')}, {_id:0, id:1, name:1, appInvRec:1}, function(err, applicationList){
+     if(!applicationList) {
+       sendJSONresponse(res, 404, {"message":"No applications found using that regular expression in the application id or name"});
+       return;
+     } else if (err) {
+       sendJSONresponse(res, 404, err);
+       return;
+     }
+     sendJSONresponse(res, 200, {applicationList});
+   });
+ } else {
+   sendJSONresponse(res, 404, {"message":"No search parameter found ("+req.params.nameregex+")"});
  }
 };

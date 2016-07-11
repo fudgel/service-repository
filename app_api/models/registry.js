@@ -47,10 +47,19 @@ var applicationSchema = new mongoose.Schema({
     appInvRec: String
 });
 
+var referenceDataCodesSchema = new mongoose.Schema({
+    id: String,
+    category: String,
+    CanonicalCode: String,
+    Description: String,
+    SAFICode: String
+},{collection:'rdCodes'});
+
 var referenceDataCategorySchema = new mongoose.Schema({
     id: String,
     services: [String],
-    mediations: [String]
+    mediations: [String],
+    systemCodes: [String]
 },{collection:'referenceData'});
 
 mongoose.model('Service', serviceSchema);
@@ -58,3 +67,4 @@ mongoose.model('ServiceList', serviceListSchema);
 mongoose.model('Mediation', mediationSchema);
 mongoose.model('Application', applicationSchema);
 mongoose.model('Category', referenceDataCategorySchema);
+mongoose.model('Codes', referenceDataCodesSchema);

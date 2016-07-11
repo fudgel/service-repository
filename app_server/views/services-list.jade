@@ -2,21 +2,43 @@ extends layout
 
 block content
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "index.html" ) Home
-    +nav_item( "services", "active" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "/" ) Home
+    +nav_item( "/services", "active" ) Services
+    +nav_item( "/referenceData/categories" ) Reference Data
+    +nav_item( "/applications" ) Applications
     +nav_item( "contact.html" ) Contact
+    //form(role='search', action='/services/searchByName', method='get').navbar-form.navbar-right
+    //  div.form-group
+    //    input(type='text',placeholder='Search', name='name').form-control
+    //  | &nbsp;
+    //  button(type='submit').btn.btn-default Search
   .row.page-header: .col-lg-12
       h1= pageHeader.title
   .row
-    .col-xs-12.col-sm-8
+    .col-xs-12.col-sm-12
       .panel.panel-primary
             .panel-heading
               h2.panel-title #{serviceList.length} Services found 
-            .panel-body
-              p 
-                each service in serviceList
-                  p
-                    a(href="/service/#{service.id}")= service.id+" "+service.name
+  .row
+    .col-xs-12.col-sm-12
+      div(class="table-responsive")
+        table(class="table table-striped table-bordered")
+          thead
+            tr
+              th SVC#
+              th Service Name
+              th Status
+              th Number of Consumers
+          tbody
+            each service in serviceList
+              tr
+                td
+                  a(href="/service/#{service.id}")= service.id  
+                td
+                  a(href="/service/#{service.id}")= service.name
+                td In Production
+                td #{service.consumers.length}
+                        
+  .row
      .col-xs-12.col-sm-4
-       p.lead Copyright 2016 Jim Walker
+       p.lead Copyright 2016 Jim Walker / WBC

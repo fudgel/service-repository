@@ -3,36 +3,37 @@ extends layout
 block content
 
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "/services" ) Home
-    +nav_item( "../services", "active" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "/" ) Home
+    +nav_item( "/services", "active" ) Services
+    +nav_item( "/referenceData/categories" ) Reference Data
+    +nav_item( "/applications" ) Applications
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
       h1= pageHeader.title
   .row
     .col-xs-12.col-md-9
       .row
-        .col-xs-12.col-sm-6
-          .panel.panel-primary
-            .panel-heading
-              h2.panel-title Service Description
-            .panel-body
-              p #{service.description}
-          .panel.panel-primary
-            .panel-heading
-              h2.panel-title Service Documentation and Artefacts
-            .panel-body
-              p 
-                a(href="#{service.documentationLocation}") #{service.id} Documentation
-              p SVN Link (TBC) 
-          .panel.panel-primary
-            .panel-heading
-              h2.panel-title Details 
-            .panel-body
-              p BCRM: #{service.bcrm}
-              p IT Domain: #{service.itDomain}
-              p IFW Transactional Component: #{service.transactionalComponent}
-              p IFW Service Group: #{service.serviceGroup}  
+        .col-xs-12.col-sm-8
+          .panel.panel-primary 
+             .panel-heading 
+               h2.panel-title Service Description 
+             .panel-body 
+               p #{service.description} 
+           .panel.panel-primary 
+             .panel-heading 
+               h2.panel-title Service Documentation and Artefacts 
+             .panel-body 
+               p  
+                 a(href="#{service.documentationLocation}") #{service.id} Documentation 
+               p SVN Link (TBC)  
+           .panel.panel-primary 
+             .panel-heading 
+               h2.panel-title Information Management Details  
+             .panel-body 
+               p BCRM: #{service.bcrm} 
+               p IT Domain: #{service.itDomain} 
+               p IFW Transactional Component: #{service.transactionalComponent} 
+               p IFW Service Group: #{service.serviceGroup}    
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.mediations.length} Mediations
@@ -64,6 +65,7 @@ block content
                 each category in service.referenceData
                   p
                     a(href="/referenceData/category/#{category}") #{category}
+  .row  
     .col-xs-12.col-md-3
-      p.lead Copyright 2016 Jim Walker
+      p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction

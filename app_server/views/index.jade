@@ -2,9 +2,10 @@ extends layout
 
 block content
   +nav("Service Registry", "dropdown_menu")
-    +nav_item( "index.html", "active" ) Home
-    +nav_item( "services.html" ) Services
-    +nav_item( "referenceData.html" ) Reference Data
+    +nav_item( "/", "active" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories" ) Reference Data
+    +nav_item( "/applications" ) Applications
     +nav_item( "contact.html" ) Contact
   h1= title
   p Welcome to #{title}
