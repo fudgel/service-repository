@@ -3,16 +3,10 @@ extend layout
 block content
 
   +nav("Service Registry", "dropdown_menu")
-<<<<<<< HEAD
     +nav_item( "/" ) Home
     +nav_item( "/services" ) Services
     +nav_item( "/referenceData/categories", "active" ) Reference Data
     +nav_item( "/applications" ) Applications
-=======
-    +nav_item( "../../services" ) Home
-    +nav_item( "../../services" ) Services
-    +nav_item( "referenceData", "active" ) Reference Data
->>>>>>> 122c5a161efe25b1ef7de82f2781d3e0246dbcf6
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
       h1 #{category[0].id} Reference Data Category
@@ -58,9 +52,5 @@ block content
                     a(href="/service/#{service}") #{service}
   .row  
     .col-xs-12.col-md-3
-<<<<<<< HEAD
       p.lead Copyright 2016 Jim Walker / WBC
-=======
-      p.lead Copyright 2016 Jim Walker and WBC
->>>>>>> 122c5a161efe25b1ef7de82f2781d3e0246dbcf6
       p= sidebar.callToAction

@@ -2,16 +2,10 @@ extends layout
 
 block content
   +nav("Service Registry", "dropdown_menu")
-<<<<<<< HEAD
     +nav_item( "/" ) Home
     +nav_item( "/services", "active" ) Services
     +nav_item( "/referenceData/categories" ) Reference Data
     +nav_item( "/applications" ) Applications
-=======
-    +nav_item( "index.html" ) Home
-    +nav_item( "services", "active" ) Services
-    +nav_item( "referenceData" ) Reference Data
->>>>>>> 122c5a161efe25b1ef7de82f2781d3e0246dbcf6
     +nav_item( "contact.html" ) Contact
     //form(role='search', action='/services/searchByName', method='get').navbar-form.navbar-right
     //  div.form-group
@@ -25,7 +19,6 @@ block content
       .panel.panel-primary
             .panel-heading
               h2.panel-title #{serviceList.length} Services found 
-<<<<<<< HEAD
   .row
     .col-xs-12.col-sm-12
       div(class="table-responsive")
@@ -49,20 +42,3 @@ block content
   .row
      .col-xs-12.col-sm-4
        p.lead Copyright 2016 Jim Walker / WBC
-=======
-            .panel-body
-              div
-                table
-              tbody
-                each service in serviceList
-                  p
-                    tr
-                      //td
-                      //  span.label.label-success In Production
-                      td
-                        a(href="/service/#{service.id}")= " "+service.id+" "  
-                      td
-                        a(href="/service/#{service.id}")= service.name
-     .col-xs-12.col-sm-4
-       p.lead Copyright 2016 Jim Walker and WBC
->>>>>>> 122c5a161efe25b1ef7de82f2781d3e0246dbcf6
