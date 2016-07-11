@@ -1,0 +1,32 @@
+extend layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories", "active" ) Reference Data
+    +nav_item( "/applications" ) Applications
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+    h1 Reference Data Category List
+    .panel.panel-primary
+      .panel-heading
+        h2.panel-title #{categories.length} categories found
+    .col-xs-12.col-sm-12
+      div(class="table-responsive")
+        table(class="table table-striped table-bordered")
+          thead
+            tr
+              th Category Name
+              th Number of services used
+          tbody
+            each category in categories
+              tr
+                td
+                  a(href="/referenceData/category/#{category.id}")= category.id
+                td  #{category.services.length}  
+                        
+  .row
+     .col-xs-12.col-sm-4
+       p.lead Copyright 2016 Jim Walker / WBC

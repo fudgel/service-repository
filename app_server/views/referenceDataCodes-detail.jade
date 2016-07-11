@@ -1,0 +1,155 @@
+extend layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories", "active" ) Reference Data
+    +nav_item( "/applications" ) Applications
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-11
+      h1 Values for #{codes[0].id} Reference Data
+      div(class="table-responsive")
+        table(class="table table-striped table-bordered")
+          thead
+            tr
+              th CanonicalCode
+              th Description
+              each system in codes[0].systemCodes 
+                th #{system}
+              - var sysList = codes[0].systemCodes
+          tbody
+            each code in codes[0].codes
+              p
+                tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                  //span.label.label-success Active
+                  td(class="active") #{code.CanonicalCode}  
+                  td #{code.Description}
+                  each system in sysList  
+                    case system
+                      when "AMLANZSICCode"
+                        td #{code.AMLANZSICCode}
+                      when "AMLCustomerSubTypeCode"
+                        td #{code.AMLCustomerSubTypeCode}
+                      when "AMLCustomerTypeCode"
+                        td #{code.AMLCustomerTypeCode}
+                      when "ASICRegisteredCode"
+                        td #{code.ASICRegisteredCode}
+                      when "ATVCode"
+                        td #{code.ATVCode}
+                      when "BPM_LOSCode"
+                        td #{code.BPM_LOSCode}
+                      when "CAFECode"
+                        td #{code.CAFECode}
+                      when "CanonicalDescription"
+                        td #{code.CanonicalDescription}
+                      when "CISCode"
+                        td #{code.CISCode}
+                      when "CISDescription"
+                        td #{code.CISDescription}
+                      when "CISLKE92Code"
+                        td #{code.CISLKE92Code}
+                      when "CISProductCode"
+                        td #{code.CISProductCode}
+                      when "CISSubsystemCode"
+                        td #{code.CISSubsystemCode}
+                      when "CP56Code"
+                        td #{code.CP56Code}
+                      when "DLMCode"
+                        td #{code.DLMCode}
+                      when "EAMCode"
+                        td #{code.EAMCode}
+                      when "EBSICode"
+                        td #{code.EBSICode}
+                      when "EFXCode"
+                        td #{code.EFXCode}
+                      when "ESBOrganisationId"
+                        td #{code.ESBOrganisationId}
+                      when "ESSCode"
+                        td #{code.ESSCode}
+                      when "FOCode"
+                        td #{code.FOCode}
+                      when "FOXRCode"
+                        td #{code.FOXRCode}
+                      when "FOXTCode"
+                        td #{code.FOXTCode}
+                      when "FTHCode"
+                        td #{code.FTHCode}
+                      when "FTHDescription"
+                        td #{code.FTHDescription}
+                      when "GHSCode"
+                        td #{code.GHSCode}
+                      when "HBACCSINDCCode"
+                        td #{code.HBACCSINDCCode}
+                      when "HBCode"
+                        td #{code.HBCode}
+                      when "HBINETACCSINDCCode"
+                        td #{code.HBINETACCSINDCCode}
+                      when "HBSUSPINDCCode"
+                        td #{code.HBSUSPINDCCode}
+                      when "IVCode"
+                        td #{code.IVCode}
+                      when "LOSCode"
+                        td #{code.LOSCode}
+                      when "LOSDescription"
+                        td #{code.LOSDescription}
+                      when "MHCode"
+                        td #{code.MHCode}
+                      when "RBCode"
+                        td #{code.RBCode}
+                      when "RelationshipFlag"
+                        td #{code.RelationshipFlag}
+                      when "REVCode"
+                        td #{code.REVCode}
+                      when "RP003Code"
+                        td #{code.RP003Code}
+                      when "SAFICode"
+                        td #{code.SAFICode}
+                      when "SASRTDMCode"
+                        td #{code.SASRTDMCode}
+                      when "TallymanCode"
+                        td #{code.TallymanCode}
+                      when "TradingASCode"
+                        td #{code.TradingASCode}
+                      when "TYCode"
+                        td #{code.TYCode}
+                      when "UCM3CHARCode"
+                        td #{code.UCM3CHARCode}
+                      when "UCM3DIGCode"
+                        td #{code.UCM3DIGCode}
+                      when "UCMCode"
+                        td #{code.UCMCode}
+                      when "UCMLOVCode"
+                        td #{code.UCMLOVCode}
+                      when "VedaCode"
+                        td #{code.VedaCode}
+                      when "VEDACode"
+                        td #{code.VEDACode}
+                      when "VisionPlusCode"
+                        td #{code.VisionPlusCode}
+                      when "VoyagerCode"
+                        td #{code.VoyagerCode}
+                      when "WIBCCCode"
+                        td #{code.WIBCCCode}
+                      when "AO002Code"
+                        td #{code.AO002Code}
+                      when "AO002Description"
+                        td #{code.AO002Description}
+                      when "CHS001Code"
+                        td #{code.CHS001Code}
+                      when "FTHMSSCode"
+                        td #{code.FTHMSSCode}
+                      when "GCI001Code"
+                        td #{code.GCI001Code}
+                      when "GHS001Code"
+                        td #{code.GHS001Code}
+                      when "MH002Code"
+                        td #{code.MH002Code}
+                      when "UL001Code"
+                        td #{code.UL001Code}
+                      default
+                        td *To Fix*

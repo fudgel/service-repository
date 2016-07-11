@@ -1,0 +1,37 @@
+extend layout
+
+block content
+
+  +nav("Service Registry", "dropdown_menu")
+    +nav_item( "/" ) Home
+    +nav_item( "/services" ) Services
+    +nav_item( "/referenceData/categories" ) Reference Data
+    +nav_item( "/applications", "active" ) Applications
+    +nav_item( "contact.html" ) Contact
+  .row.page-header: .col-lg-12
+    h1= pageHeader.title
+  .row
+    .col-xs-12.col-sm-12
+      .panel.panel-primary
+            .panel-heading
+              h2.panel-title #{apps.length} Applications found 
+  .row
+    .col-xs-12.col-sm-12
+      div(class="table-responsive")
+        table(class="table table-striped table-bordered")
+          thead
+            tr
+              th Application ID
+              th Name
+              th Application Inventory Link
+          tbody
+            each application in apps
+              tr
+                td
+                  a(href="/application/#{application.id}")= application.id 
+                td #{application.name}
+                td 
+                  a(href="#{application.appInvRec}")= application.id
+  .row
+     .col-xs-12.col-sm-4
+       p.lead Copyright 2016 Jim Walker / WBC
