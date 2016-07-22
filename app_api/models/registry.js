@@ -9,8 +9,7 @@ var serviceSchema = new mongoose.Schema({
     transactionalComponent: String,
     serviceGroup: String,
     organisations: [String],
-    STSconsumers: [String],
-    consumers: [String],
+    consumers: [],
     mediations: [String],
     servicePattern: String,
     servicePatternVersion: String,
@@ -62,9 +61,23 @@ var referenceDataCategorySchema = new mongoose.Schema({
     systemCodes: [String]
 },{collection:'referenceData'});
 
+var dataDictionarySchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    dataType: String,
+    attributeName: String,
+    description: String,
+    lifecycleStatus: String,
+    ecdmEntity: String,
+    supercededBy: String,
+    resources: [String],
+    modelDomains: [String]
+},{collection:'dataDictionary'});
+
 mongoose.model('Service', serviceSchema);
 mongoose.model('ServiceList', serviceListSchema);
 mongoose.model('Mediation', mediationSchema);
 mongoose.model('Application', applicationSchema);
 mongoose.model('Category', referenceDataCategorySchema);
 mongoose.model('Codes', referenceDataCodesSchema);
+mongoose.model('DataDictionary', dataDictionarySchema);

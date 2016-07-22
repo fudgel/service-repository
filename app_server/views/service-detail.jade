@@ -7,6 +7,7 @@ block content
     +nav_item( "/services", "active" ) Services
     +nav_item( "/referenceData/categories" ) Reference Data
     +nav_item( "/applications" ) Applications
+    +nav_item( "/dataDictionary" ) API Data Dictionary
     +nav_item( "contact.html" ) Contact
   .row.page-header: .col-lg-12
       h1= pageHeader.title
@@ -45,18 +46,20 @@ block content
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.consumers.length} Consumers
-            .panel-body
-              p
+          div(class="table-responsive")
+            table(class="table table-striped table-bordered")
+              thead
+                tr
+                  th Consumer
+                  th Consuming
+                  th Registered
+              tbody
                 each consumer in service.consumers
-                  p
-                    a(href="/application/#{consumer}") #{consumer} 
-          .panel.panel-primary
-            .panel-heading
-              h2.panel-title #{service.STSconsumers.length} STS Registered Consumers
-            .panel-body
-              p
-                each STSconsumer in service.STSconsumers
-                  p #{STSconsumer} &#32; 
+                  tr
+                    td
+                      a(href="/application/#{consumer.applicationId}") #{consumer.applicationId}
+                    td  #{consumer.consuming}
+                    td  #{consumer.registered}  
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.referenceData.length} Reference Data Categories

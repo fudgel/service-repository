@@ -6,6 +6,7 @@ var ctrlApplication = require('../controllers/application');
 var ctrlMediation   = require('../controllers/mediation');
 var ctrlRefData     = require('../controllers/referenceData');
 var ctrlService     = require('../controllers/service');
+var ctrlDataDictionary = require('../controllers/dataDictionary');
 
 /* General pages */
 router.get('/', ctrlMain.index);
@@ -29,5 +30,11 @@ router.get('/referenceData/codes/:categoryid',ctrlRefData.referenceDataCodesList
 router.get('/services', ctrlService.serviceList);
 router.get('/services/searchByName/:nameregex', ctrlService.serviceListFromSearch);
 router.get('/service/:serviceid', ctrlService.serviceDetail);
+
+// Data Dictionary
+router.get('/dataDictionary', ctrlDataDictionary.dataDictionaryList);
+router.get('/dataDictionary/searchByName/:nameregex', ctrlDataDictionary.dataDictionaryListSearchByName);
+router.get('/dataDictionary/searchByDescription/:nameregex', ctrlDataDictionary.dataDictionaryListSearchByDescription);
+router.get('/dataDictionary/:datadictionaryid',ctrlDataDictionary.dataDictionaryDetail);
 
 module.exports = router;
