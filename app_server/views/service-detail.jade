@@ -58,8 +58,16 @@ block content
                   tr
                     td
                       a(href="/application/#{consumer.applicationId}") #{consumer.applicationId}
-                    td  #{consumer.consuming}
-                    td  #{consumer.registered}  
+                    case consumer.consuming
+                      when true
+                        td.success Yes
+                      default
+                        td.warning No
+                    case consumer.registered
+                      when true
+                        td.success Yes
+                      default
+                        td.warning No
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.referenceData.length} Reference Data Categories
