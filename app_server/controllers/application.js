@@ -72,7 +72,9 @@ var getApplicationsList = function (req, res, callback) {
 
 var getApplicationsListSearchByName = function (req, res, callback) {
   var requestOptions, path;
-  path = "/api/applications/searchByName/" + req.params.nameregex;
+  var nameregex = req.param('name');
+  common.trace("DEBUG:"+component+"getApplicationsListSearchByName","Parameters - 'nameregex'=("+nameregex+")");
+  path = "/api/applications/searchByName/" + nameregex;
   common.trace("DEBUG:"+component+"getApplicationsListSearchByName","Invoked with Path=("+path+")");
   requestOptions = {
     url : common.apiOptions.server + path,

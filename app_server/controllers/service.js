@@ -31,7 +31,9 @@ var getServiceList = function(req, res, callback){
 /* GET 'Services List' filted with name regex */
 var getServiceListFromSearch = function(req, res, callback){
   var requestOptions, path;
-  path = '/api/services/searchByName/' + req.params.nameregex;
+  var nameregex = req.param('name');
+  common.trace("DEBUG:"+component+"getServiceListFromSearch","Parameters - 'nameregex'=("+nameregex+")");
+  path = '/api/services/searchByName/' + nameregex;
   common.trace("DEBUG:"+component+"getServiceListFromSearch","Invoked using Path=("+path+")");
   requestOptions = {
     url : common.apiOptions.server + path,

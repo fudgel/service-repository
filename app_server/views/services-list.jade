@@ -8,11 +8,11 @@ block content
     +nav_item( "/applications" ) Applications
     +nav_item( "/dataDictionary" ) API Data Dictionary
     +nav_item( "contact.html" ) Contact
-    //form(role='search', action='/services/searchByName', method='get').navbar-form.navbar-right
-    //  div.form-group
-    //    input(type='text',placeholder='Search', name='name').form-control
-    //  | &nbsp;
-    //  button(type='submit').btn.btn-default Search
+    form(role='search', action='/services/searchByName', method='get').navbar-form.navbar-right
+      div.form-group
+        input(type='text',placeholder='Search', name='name').form-control
+      | &nbsp;
+      button(type='submit').btn.btn-default Search
   .row.page-header: .col-lg-12
       h1= pageHeader.title
   .row

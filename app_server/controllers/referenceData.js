@@ -116,7 +116,9 @@ var getReferenceDataCategoryList = function (req, res, callback) {
 
 var getReferenceDataCategoryListSearchByName = function (req, res, callback) {
   var requestOptions, path;
-  path = "/api/referenceData/categories/searchByName/" + req.params.nameregex;
+  var nameregex = req.param('name');
+  common.trace("DEBUG:"+component+"getReferenceDataCategoryListSearchByName","Parameters - 'nameregex'=("+nameregex+")");
+  path = "/api/referenceData/categories/searchByName/" + nameregex;
   common.trace("DEBUG:"+component+"getReferenceDataCategoryListSearchByName","Invoked using Path=("+path+")");
   requestOptions = {
     url : common.apiOptions.server + path,
