@@ -26,7 +26,8 @@ block content
              .panel-body 
                p  
                  a(href="#{service.documentationLocation}") #{service.id} Documentation 
-               p SVN Link (TBC)  
+               p 
+                 a(href="http://10.2.224.135/svn/esb/trunk/ServiceSchemas/#{service.transactionalComponent}/#{service.serviceGroup}/#{service.service}_#{service.name}/#{service.version}/") SVN Link   
            .panel.panel-primary 
              .panel-heading 
                h2.panel-title Information Management Details  
