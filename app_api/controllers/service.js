@@ -10,7 +10,7 @@ var sendJSONresponse = function(res, status, content) {
 module.exports.serviceReadOne = function(req, res) {
  if (req.params.serviceid) { 
    Service.findOne({"id":req.params.serviceid}, function (err, service) {
-     console.log(service);
+     // console.log(service);
      if(!service) {
        sendJSONresponse(res, 404, {"message":"serviceid not found"});
        return;
