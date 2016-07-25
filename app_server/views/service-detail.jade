@@ -24,8 +24,11 @@ block content
              .panel-heading 
                h2.panel-title Service Documentation and Artefacts 
              .panel-body 
-               p  
+               if service.documentationLocation && service.documentationLocation.length != 0
+                p  
                  a(href="#{service.documentationLocation}") #{service.id} Documentation 
+               else
+                p #{service.id} Documentation - *Missing link - contact support to fix*
                p 
                  a(href="http://10.2.224.135/svn/esb/trunk/ServiceSchemas/#{service.transactionalComponent}/#{service.serviceGroup}/#{service.service}_#{service.name}/#{service.version}/") SVN Link   
            .panel.panel-primary 
@@ -51,9 +54,12 @@ block content
             table(class="table table-striped table-bordered")
               thead
                 tr
-                  th Consumer
-                  th Consuming
-                  th Registered
+                  th 
+                    b Consumer
+                  th 
+                    b Consuming
+                  th
+                    b Registered
               tbody
                 each consumer in service.consumers
                   tr
@@ -61,14 +67,18 @@ block content
                       a(href="/application/#{consumer.applicationId}") #{consumer.applicationId}
                     case consumer.consuming
                       when true
-                        td.success Yes
+                        td.success 
+                          img(src="/bootstrap/img/checkbox-on.png")
                       default
-                        td.warning No
+                        td.warning 
+                          img(src="/bootstrap/img/checkbox-off.png")
                     case consumer.registered
                       when true
-                        td.success Yes
+                        td.success
+                          img(src="/bootstrap/img/checkbox-on.png")
                       default
-                        td.warning No
+                        td.warning
+                          img(src="/bootstrap/img/checkbox-off.png")
           .panel.panel-primary
             .panel-heading
               h2.panel-title #{service.referenceData.length} Reference Data Categories
