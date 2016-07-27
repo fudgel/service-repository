@@ -21,17 +21,25 @@ block content
               thead
                 tr
                   th Name
-                  th Data Type
+                  th Attribute Name
+                  th Unqualified Name
                   th Description
+                  th Data Type
+                  th Values
                   th Lifecycle Status
+                  th Resources
               tbody
                 each item in dataDictionaryItems
                   tr
                     td
                       a(href="/dataDictionary/#{item.id}")= item.name
-                    td #{item.dataType}
+                    td #{item.attributeName}
+                    td #{item.unqualifiedAttributeName}
                     td #{item.description}
-                    td #{item.lifecycleStatus}
+                    td #{item.dataType}
+                    td #{item.enumValues}
+                    td.success #{item.lifecycleStatus}
+                    td #{item.resources}
     .col-xs-12.col-md-3
       p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction
