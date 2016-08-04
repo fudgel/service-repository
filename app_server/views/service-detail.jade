@@ -30,7 +30,8 @@ block content
                else
                 p #{service.id} Documentation - *Missing link - contact support to fix*
                p 
-                 a(href="http://10.2.224.135/svn/esb/trunk/ServiceSchemas/#{service.transactionalComponent}/#{service.serviceGroup}/#{service.service}_#{service.name}/#{service.version}/") SVN Link   
+                 a(href="http://10.2.224.135/svn/esb/trunk/ServiceSchemas/#{service.transactionalComponent}/#{service.serviceGroup}/#{service.service}_#{service.name}/#{service.version}/") SVN Link
+               p Platform: #{service.platform}     
            .panel.panel-primary 
              .panel-heading 
                h2.panel-title Information Management Details  
