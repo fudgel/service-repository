@@ -1,8 +1,14 @@
 var request = require('request');
-module.exports.apiOptions = {
-  //server : "http://localhost:3000"
-  server : "http://localhost:80"
-  //server : "http://au2109lp2286:80"
+
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.apiOptions = {
+    server : "http://localhost:80"
+  };
+} else {
+  module.exports.apiOptions = {
+    server : "http://localhost:3000"
+  };  
 };
 
 var debug = true;

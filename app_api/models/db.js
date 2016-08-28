@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://localhost/registry';
-//var dbURI = 'mongodb://rtiUser:VdZD8ovZrZ8AJ9hE2WKWwu@iad2-c6-2.mongo.objectrocket.com:52203/registry';
+var dbURI;
+
 if (process.env.NODE_ENV === 'production') {
     dbURI = 'mongodb://rtiUser:VdZD8ovZrZ8AJ9hE2WKWwu@iad2-c6-2.mongo.objectrocket.com:52203/registry';
+} else {
+    dbURI = 'mongodb://localhost/registry';
 }
 
 mongoose.connect(dbURI);
