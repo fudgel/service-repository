@@ -33,7 +33,8 @@ router.get('/service/:serviceid', ctrlService.serviceDetail);
 
 // Data Dictionary
 router.get('/dataDictionary', ctrlDataDictionary.dataDictionaryList);
-router.get('/dataDictionary/searchByName/:nameregex', ctrlDataDictionary.dataDictionaryListSearchByName);
+//router.get('/dataDictionary/searchByName/:nameregex', ctrlDataDictionary.dataDictionaryListSearchByName);
+router.get('/dataDictionary/searchByName', ctrlDataDictionary.dataDictionaryListSearchByName);
 router.get('/dataDictionary/searchByDescription/:nameregex', ctrlDataDictionary.dataDictionaryListSearchByDescription);
 router.get('/dataDictionary/:datadictionaryid',ctrlDataDictionary.dataDictionaryDetail);
 

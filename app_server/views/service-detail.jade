@@ -22,7 +22,7 @@ block content
                p #{service.description} 
            .panel.panel-primary 
              .panel-heading 
-               h2.panel-title Service Documentation and Artefacts 
+               h2.panel-title Service Attributes, Documentation and Artefacts 
              .panel-body 
                if service.documentationLocation && service.documentationLocation.length != 0
                 p  
@@ -31,7 +31,7 @@ block content
                 p #{service.id} Documentation - *Missing link - contact support to fix*
                p 
                  a(href="http://10.2.224.135/svn/esb/trunk/ServiceSchemas/#{service.transactionalComponent}/#{service.serviceGroup}/#{service.service}_#{service.name}/#{service.version}/") SVN Link
-               p Platform: #{service.platform}     
+               p Platform: #{service.platform}   
            .panel.panel-primary 
              .panel-heading 
                h2.panel-title Information Management Details  

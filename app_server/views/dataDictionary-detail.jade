@@ -21,15 +21,16 @@ block content
               h2.panel-title Details
             .panel-body
               p id: #{dataDictionaryItem.id}
-              p name: #{dataDictionaryItem.name}
-              p attributeName: #{dataDictionaryItem.attributeName}
-              p dataType: #{dataDictionaryItem.dataType}
+              p name: #{dataDictionaryItem.unqualifedName}
+              p attributeName: #{dataDictionaryItem.qualifiedName}
+              p dataType: #{dataDictionaryItem.type}
+              p format: #{dataDictionaryItem.typeFormat}
               p description: #{dataDictionaryItem.description}
               p lifecycle: #{dataDictionaryItem.lifecycleStatus}
               p ECDM Entity: #{dataDictionaryItem.ecdmEntity}
               p Superceded by: #{dataDictionaryItem.supercededBy}
               p Model Domains: #{dataDictionaryItem.modelDomains}
-              p Resouces: #{dataDictionaryItem.resources}
+              p Resouces: #{dataDictionaryItem.resource}
   .row
     .col-xs-12.col-md-6
       p.lead Copyright 2016 Jim Walker / WBC

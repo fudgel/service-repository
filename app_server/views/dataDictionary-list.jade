@@ -9,6 +9,11 @@ block content
     +nav_item( "/applications" ) Applications
     +nav_item( "/dataDictionary", "active" ) API Data Dictionary
     +nav_item( "contact.html" ) Contact
+    form(role='search', action='/dataDictionary/searchByName', method='get').navbar-form.navbar-right
+      div.form-group
+        input(type='text',placeholder='Search', name='name').form-control
+      | &nbsp;
+      button(type='submit').btn.btn-default Search
   .row.page-header: .col-lg-12
       h1= pageHeader.title
       p THIS IS A POC - DO NOT REFERENCE
@@ -21,10 +26,10 @@ block content
               thead
                 tr
                   th Name
-                  th Attribute Name
                   th Unqualified Name
                   th Description
                   th Data Type
+                  th Format
                   th Values
                   th Lifecycle Status
                   th Resources
@@ -32,14 +37,14 @@ block content
                 each item in dataDictionaryItems
                   tr
                     td
-                      a(href="/dataDictionary/#{item.id}")= item.name
-                    td #{item.attributeName}
-                    td #{item.unqualifiedAttributeName}
+                      a(href="/dataDictionary/#{item.id}")= item.qualifiedName
+                    td #{item.unqualifedName}
                     td #{item.description}
-                    td #{item.dataType}
-                    td #{item.enumValues}
+                    td #{item.type}
+                    td #{item.typeFormat}
+                    td #{item.enum}
                     td.success #{item.lifecycleStatus}
-                    td #{item.resources}
+                    td #{item.resource}
     .col-xs-12.col-md-3
       p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction

@@ -28,7 +28,7 @@ module.exports.dataDictionaryReadOne = function(req, res) {
 /* GET data dictionary list by the name */
 module.exports.dataDictionarySearchByNameListRead = function(req, res) {
  if (req.params.nameregex) {
-   DataDictionary.find({'name' : new RegExp(req.params.nameregex, 'i')}, function (err, dataDictionary) {
+   DataDictionary.find({'qualifiedName' : new RegExp(req.params.nameregex, 'i')}, function (err, dataDictionary) {
      console.log(dataDictionary);
      if(!dataDictionary) {
        sendJSONresponse(res, 404, {"message":"Application record for datadictionaryid("+req.params.datadictionaryid+") not found"});

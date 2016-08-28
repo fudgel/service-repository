@@ -64,7 +64,9 @@ var getDataDictionaryList = function (req, res, callback) {
 
 var getDataDictionaryListSearchByName = function (req, res, callback) {
   var requestOptions, path;
-  path = "/api/dataDictionary/searchByName/" + req.params.nameregex;
+  var nameregex = req.param('name');
+  common.trace("DEBUG:"+component+"getDataDictionaryListSearchByName","Parameters - 'nameregex'=("+nameregex+")");
+  path = "/api/dataDictionary/searchByName/"+nameregex;
   common.trace("DEBUG:"+component+"getDataDictionaryListSearchByName","Invoked with Path=("+path+")");
   requestOptions = {
     url : common.apiOptions.server + path,

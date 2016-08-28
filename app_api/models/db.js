@@ -3,7 +3,8 @@ var gracefulShutdown;
 var dbURI;
 
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://rtiUser:VdZD8ovZrZ8AJ9hE2WKWwu@iad2-c6-2.mongo.objectrocket.com:52203/registry';
+    //dbURI = 'mongodb://<user>:<passwd>@<server>:<port>/registry';
+    dbURI = 'mongodb://localhost/registry';
 } else {
     dbURI = 'mongodb://localhost/registry';
 }
