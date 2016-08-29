@@ -33,6 +33,7 @@ block content
                   th Values
                   th Lifecycle Status
                   th Resources
+                  th API Type
               tbody
                 each item in dataDictionaryItems
                   tr
@@ -45,6 +46,7 @@ block content
                     td #{item.enum}
                     td.success #{item.lifecycleStatus}
                     td #{item.resource}
+                    td #{item.apiType}
     .col-xs-12.col-md-3
       p.lead Copyright 2016 Jim Walker / WBC
       p= sidebar.callToAction
