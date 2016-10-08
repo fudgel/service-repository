@@ -7,7 +7,7 @@ block content
     +nav_item( "/services" ) Services
     +nav_item( "/referenceData/categories", "active" ) Reference Data
     +nav_item( "/applications" ) Applications
-    +nav_item( "/dataDictionary" ) API Data Dictionary
+    //+nav_item( "/dataDictionary" ) API Data Dictionary
     +nav_item( "contact.html" ) Contact
     form(role='search', action='/referenceData/categories/searchByName', method='get').navbar-form.navbar-right
       div.form-group
@@ -16,6 +16,11 @@ block content
       button(type='submit').btn.btn-default Search
   .row.page-header: .col-lg-12
     h1 Reference Data Category List
+    p This library is FYI, and is valid as at 6th September 2016. It should NOT be used as the source of truth for Reference Data that is consumed by ESB Services and other Applications. 
+    p 
+    a(href="https://wbcspaces.intranet.westpac.com.au/btss/teams/sda/GCMESB/SOAESBProgram/del/Useful%20Information%20%20Documents/Enterprise%20Reference%20Data%20v1%200%2020160215.docx") Please click here 
+    for the General Reference Data information that includes a high level summary of who to engage for Reference Data information, support and changes.
+    p
     .panel.panel-primary
       .panel-heading
         h2.panel-title #{categories.length} categories found
